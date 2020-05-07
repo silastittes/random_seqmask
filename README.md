@@ -1,3 +1,4 @@
+```
 usage: random_seqmask.py [-h] [-T [{identical,random}]] -f FASTA_INPUT
                          [-p PENALTY] [-m MISSING_FACTOR] -o OUT_FILE
 
@@ -24,3 +25,4 @@ optional arguments:
                         missingness.
   -o OUT_FILE, --out_file OUT_FILE
                         The file to write output to.
+```
