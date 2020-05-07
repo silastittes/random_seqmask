@@ -1,10 +1,14 @@
-```
-usage: random_seqmask.py [-h] [-T [{identical,random}]] -f FASTA_INPUT
-                         [-p PENALTY] [-m MISSING_FACTOR] -o OUT_FILE
-
 Input a fasta of sequence, masks each sequence randomly according to input
 parameters. Allows identical masking across the input sequences or random
 masking. See help for more details.
+
+Example:
+
+`python random_seqmask.py -T identical -f fake.fa -p 0.01 -m 5 -o fake_mask.fa`
+
+```
+usage: random_seqmask.py [-h] [-T [{identical,random}]] -f FASTA_INPUT
+                         [-p PENALTY] [-m MISSING_FACTOR] -o OUT_FILE
 
 optional arguments:
   -h, --help            show this help message and exit

@@ -9,20 +9,18 @@ parser.add_argument("-T", "--mask_type", nargs = "?",
 	            default = "random",
 		    help = "Apply identical masking across sequences, requires all input sequence to be the same length, OR applies random masking to each sequence, using the same masking parameters.")
 
-parser.add_argument("-f", "--fasta_input", type = str,
+parser.add_argument("-f", "--fasta_input", type = str, required = True,
 		    help = "Input is alignment file in fasta format.",
-		    required = True)
+    		    )
 
-parser.add_argument("-p", "--penalty", type = float, default = 1.0,
+parser.add_argument("-p", "--penalty", type = float, required = True,
 		    help = "Positive real. All else equal, determines how long islands of missing bases will be. Smaller values means shorter islands.")
 
-
-parser.add_argument("-m", "--missing_factor", type = float,
+parser.add_argument("-m", "--missing_factor", type = float, required = True,
 		    help = "Positive real. All else equal, determines how frequent missing bases will be. Smaller values result in more missingness.")
 
-
-parser.add_argument("-o", "--out_file", type = str,
-		    help = "The file to write output to.", required = True)
+parser.add_argument("-o", "--out_file", type = str, required = True,
+		    help = "The file to write output to.")
 
 args = parser.parse_args()
 
