@@ -30,3 +30,15 @@ optional arguments:
   -o OUT_FILE, --out_file OUT_FILE
                         The file to write output to.
 ```
+
+The repo includes two other helpful scripts: `fake_seq.py` and `count_missing.py`, which create a really simple fasta sequence to test the masking out on, and  summarize the resulting run lengths of missing and non-missing bases, respectively.
+
+Usage: 
+
+```
+python fake_seq.py #modify size and number of sequence in script
+
+
+#fake_seq.py write fake_mask.fa
+python count_missing.py fake_mask.fa
+```
