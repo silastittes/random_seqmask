@@ -1,5 +1,6 @@
 import re
 import numpy as np
+from scipy import stats
 import argparse 
 
 parser = argparse.ArgumentParser(description="Get average size and frequency of runs of missing or non-missing bases.")
@@ -32,9 +33,24 @@ def count_base_runs(seq, count_str =  ["A", "T", "G", "C"], split_str = "N"):
 
 seqs = fasta_list(args.reference)
 
-for name, seq in seqs.items():
-    mruns = count_N_runs(seq)
-    nruns = count_base_runs(seq)
+def stats(runs):
+    
+    av = np.mean(runs)
+    sd = np.std(runs)
+    mn = np.min(runs)
+    mx = np.max(runs)
+    print(f"min\tmean\tmax\tstandard deviation\tlength")
+    print(f"{mn:.2f}\t{av:.2f}\t{mx:.2f}\t{sd:.2f}\t{len(runs)}")
+    
 
-    print(f"mean missing lengths: {np.mean(mruns):.2f}\nstandard deviation of missing lengths: {np.std(mruns):.2f}\nnumber of missing blocks:{len(mruns)}")
-    print(f"mean nucleotide lengths: {np.mean(nruns):.2f}\nstandard devisation of nucleotide lengths: {np.std(nruns):.2f}\nnumer of nucleotide blocks: {len(nruns)}")
+for name, seq in seqs.items():
+    print("missing")
+    stats(count_N_runs(seq))
+    print("nucleotide")
+    stats(count_base_runs(seq))
+
+    #mruns = count_N_runs(seq)
+    #nruns = count_base_runs(seq)
+
+    #print(f"mean missing lengths: {np.mean(mruns):.2f}\nstandard deviation of missing lengths: {np.std(mruns):.2f}\nnumber of missing blocks:{len(mruns)}")
+    #print(f"mean nucleotide lengths: {np.mean(nruns):.2f}\nstandard devisation of nucleotide lengths: {np.std(nruns):.2f}\nnumer of nucleotide blocks: {len(nruns)}")

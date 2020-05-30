@@ -1,7 +1,7 @@
 import numpy as np
 
 n_seq = 1
-seq_size = 10000
+seq_size = 20000
 nucs = ["A", "T", "G", "C"]
 
 seq_file = open("fake.fa", "w")
